@@ -1,0 +1,624 @@
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script type="text/javascript">
+      function populate(s1,s2){
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        s2.innerHTML = "";
+        if(s1.value == "Li"){
+          var optionArray = ["carbonato_litio|Carbonato de Litio (Li2CO3)","hidroxido_litio|Hidroxido de Litio (LiOH)"];
+        }
+        else if(s1.value == "K"){
+          var optionArray = ["hidroxido_potassio|Hidróxido de Potássio (KOH)","cloreto_potassio|Cloreto de Potassio (KCL)"];
+        }
+        else if(s1.value == "Mg"){
+          var optionArray = ["cloreto_magnesio|Cloreto de Magnesio (MgCl2)","sulfato_magnesio|Sulfato de Magnesio (MgSO4)"];
+        }
+        else if(s1.value == "Al"){
+          var optionArray = ["acido_sulfurico|Acido Sulfurico (H2SO4)","hidroxido_aluminio|Hidróxido de Aluminio (Al(OH)3)"];
+        }
+        else if(s1.value == "Zn"){
+          var optionArray = ["sulfato_zinco|Sulfato de zincon (ZnSO4)"];
+        }
+        else if(s1.value == "Cr"){
+          var optionArray = ["sicromato_potassio|Sicromato de Potássio (K2Cr2O7)"];
+        }
+        else if(s1.value == "Fe"){
+          var optionArray = ["sulfato_ferro|Sulfato de ferro (II) (FeSO4)","nitrato_ferro|Nitrato de ferro Fe(NO3)3"];
+        }
+        else if(s1.value == "Pb"){
+          var optionArray = ["sulfato_chumbo|Sulfato de chumbo (PbSO4)"];
+        }
+        else if(s1.value == "Cu"){
+          var optionArray = ["sulfato_cobre|Sulfato de cobre (CuSO4)"];
+        }
+        else if(s1.value == "Ag"){
+          var optionArray = ["nitrato_prata|Nitrato de Prata (AgNO3)"];
+        }
+        else if(s1.value == "Hg"){
+          var optionArray = ["hidroxido_potassio|Hidróxido de Potássio (KOH)"];
+        }
+        else if(s1.value == "I"){
+          var optionArray = ["iodato_sodio|Iodato de Sodio (NaIO3)"];
+        }
+  for(var option in optionArray){
+    var pair = optionArray[option].split("|");
+    var newOption = document.createElement("option");
+    newOption.value = pair[0];
+    newOption.innerHTML = pair[1];
+    s2.options.add(newOption);
+    }
+  }
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seleção de Bateria</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="images/form-img.jpg" alt="">
+                    <div class="signup-img-content">
+                        <p id="demo"></p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form class="register-form" id="register-form" action="index.html">
+                       <h1>Voce deseja montar sua bateria: </h1>
+                          <div class="form-row">
+                            <div class="form-group">
+                              <div class="form-input">
+                                  <label for="pergunta_1" >Material do Catodo</label>
+                                    <div class="styled-select slate">
+                                      <select name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+                                        <option value=""></option>
+                                        <option value="Li">Litio</option>
+                                        <option value="K">Potassio</option>
+                                        <option value="Mg">Magnesio</option>
+                                        <option value="Al">Aluminio</option>
+                                        <option value="Zn">Zinco</option>
+                                        <option value="Cr">Cromio</option>
+                                        <option value="Fe">Ferro</option>
+                                        <option value="Ni">Niquel</option>
+                                        <option value="Pb">Chumbo</option>
+                                        <option value="Cu">Cobre</option>
+                                        <option value="Ag">Prata</option>
+                                        <option value="Hg">Mercurio</option>
+                                        <option value="I">Iodo</option>
+
+                                      </select>
+                                    </div>
+                                  <label for="pergunta_2" >Solução do Catodo</label>
+                                    <div class="styled-select slate">
+                                      <select id = "slct2" name="slct2">
+                                      </select>
+                                    </div>
+                              </div>
+                              <div class="form-input">
+                                  <label for="pergunta_3" >Concentração da Solução do Catodo</label>
+                                  <input type="number" name="pergunta_3" value="1" id="pergunta_3" min="0" max="10"  />
+                              </div>
+                              <div class="form-input">
+                                  <label for="pergunta_4" >Massa do Catodo (kg)</label>
+                                  <input type="number" name="pergunta_4" value="1" id="pergunta_4" min="0" max="24"/>
+                              </div>
+                              <div class="form-input">
+                                  <label for="pergunta_5" >Temperatura</label>
+                                  <input type="number" name="pergunta_5" value="25" id="pergunta_5" min="1" max="2000"/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="form-input">
+                                <label for="pergunta_6" >Material do Anodo</label>
+                                    <div class="styled-select slate">
+                                      <select name="slct3" id="slct3" onchange="populate(this.id,'slct4')">
+                                        <option value=""></option>
+                                        <option value="Li">Litio</option>
+                                        <option value="K">Potassio</option>
+                                        <option value="Mg">Magnesio</option>
+                                        <option value="Al">Aluminio</option>
+                                        <option value="Zn">Zinco</option>
+                                        <option value="Cr">Cromio</option>
+                                        <option value="Fe">Ferro</option>
+                                        <option value="Ni">Niquel</option>
+                                        <option value="Pb">Chumbo</option>
+                                        <option value="Cu">Cobre</option>
+                                        <option value="Ag">Prata</option>
+                                        <option value="Hg">Mercurio</option>
+                                        <option value="I">Iodo</option>
+                                      </select>
+                                    </div>
+                                  <label for="pergunta_7" >Solução do Anodo</label>
+                                    <div class="styled-select slate">
+                                      <select id = "slct4" name="slct4">
+                                      </select>
+                                    </div>
+                              </div>
+                              <div class="form-input">
+                                <label for="pergunta_8" >Concentração da Solução do Anodo (mol/L) </label>
+                                  <input type="number" name="pergunta_8" value="1" id="pergunta_8" min="0"  max="100000" />
+                              </div>
+                              <div class="form-input">
+                                <label for="pergunta_9" >Massa do Anado (kg)</label>
+                                  <input type="number" name="pergunta_9" value="1" id="pergunta_9" min="0" max="100000" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-submit">
+                              <input type="button" value="Calcular" class="submit" id="submit" name="submit" onclick="Montar()" value="calculate">
+                              <input type="submit" value="Resetar" class="submit" id="reset" name="reset" />
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+      <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="images/cientista.png" alt="">
+                    <div class="signup-img-content">
+                        <p id="demo"></p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form class="register-form" id="register-form" action="index.html">
+                       <h1>Sugerindo Uma Pilha Para Sua Aplicação </h1>
+                          <div class="form-row">
+                            <div class="form-group">
+                              <div class="form-input">
+                                  <label for="pergunta_10" >DDP Desejada (V)</label>
+                                  <input type="number" name="pergunta_10" value="0" id="pergunta_10" min="0" max="10000" />
+                              </div>
+                              <div class="form-input">
+                                  <label for="pergunta_11" >Potencia Desejada (W)</label>
+                                  <input type="number" name="pergunta_11" value="0" id="pergunta_11" min="0" max="10" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="form-input">
+                                <div class="form-input">
+                                  <label for="pergunta_12" >Tempo Total Ligada (h)</label>
+                                  <input type="number" name="pergunta_12" value="0" id="pergunta_12" min="0" max="24"/>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-submit">
+                              <input type="button" value="Calcular" class="submit" id="submit" name="submit" onclick="Sugerindo()" value="calculate">
+                              <input type="submit" value="Resetar" class="submit" id="reset" name="reset" />
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/nouislider/nouislider.min.js"></script>
+    <script src="vendor/wnumb/wNumb.js"></script>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    var dict = new Object();
+
+    var a = 5500;
+
+    var materiais = [];
+
+    var litio = {
+        n_eletrons:  1,
+        abreviatura:  "Li",
+        potencial_reducao:   3.04,
+        preco:   190 * 4,
+        massa_molar: 6.94,
+
+    };
+
+
+    var potassio = {
+        n_eletrons:  0.5,
+        abreviatura:  "K",
+        potencial_reducao:   2.92,
+        preco:   20 * 4,
+        massa_molar: 39.09
+    };
+
+
+    var magnesio = {
+        n_eletrons:  1,
+        abreviatura:  "Mg",
+        potencial_reducao:   2.37,
+        preco:   14 * 4,
+        massa_molar: 24.3
+    };
+
+    var aluminio = {
+        n_eletrons:  1,
+        abreviatura:  "Al",
+        potencial_reducao:   1.66,
+        preco:   3.5 * 4,
+        massa_molar: 26.98
+    };
+
+
+    var zinco = {
+        n_eletrons:  1,
+        abreviatura:  "Zn",
+        potencial_reducao:   0.76,
+        preco:   2.85 * 4,
+        massa_molar: 65.3
+    };
+
+    var cromio = {
+        n_eletrons: 1,
+        abreviatura: "Cr",
+        potencial_reducao: 0.74,
+        preco:   16 * 4,
+        massa_molar: 51.9
+    };
+
+
+    var ferro = {
+        n_eletrons:  1,
+        abreviatura:  "Fe",
+        potencial_reducao:   0.44,
+        preco:   2 * 4,
+        massa_molar: 55.8
+    };
+
+
+    var niquel = {
+        n_eletrons:  1,
+        abreviatura:  "Ni",
+        potencial_reducao:   0.23,
+        preco:   13 * 4,
+        massa_molar: 58.6
+    };
+
+    var chumbo = {
+        n_eletrons:  1,
+        abreviatura:  "Pb",
+        potencial_reducao:   0.13,
+        preco:   2 * 4,
+        massa_molar: 207.2
+    };
+
+
+    var cobre = {
+        n_eletrons:  1,
+        abreviatura:  "Cu",
+        potencial_reducao:   -0.34,
+        preco:   6.5 * 4,
+        massa_molar: 63.54
+    };
+
+
+    var prata = {
+        n_eletrons:  1,
+        abreviatura:  "Ag",
+        potencial_reducao:   -0.80,
+        preco:   483 * 4,
+        massa_molar: 107.86
+    };
+
+    var mercurio = {
+        n_eletrons:  1,
+        abreviatura:  "Hg",
+        potencial_reducao:   -0.85,
+        preco:   251 * 4,
+        massa_molar: 200.5
+    };
+
+    var iodo = {
+        n_eletrons:  1,
+        abreviatura:  "I",
+        potencial_reducao:   -0.54,
+        preco:   9 * 4,
+        massa_molar: 126.9
+    };
+
+    materiais.push(litio);
+    materiais.push(potassio);
+    materiais.push(magnesio);
+    materiais.push(aluminio);
+    materiais.push(zinco);
+    materiais.push(cromio);
+    materiais.push(ferro);
+    materiais.push(niquel);
+    materiais.push(chumbo);
+    materiais.push(cobre);
+    materiais.push(prata);
+    materiais.push(mercurio);
+    materiais.push(iodo);
+
+    var pilhas = [];
+
+    var chumbo_acida = {
+      nome : "Chumbo Acida 12V 28A",
+      capacidade: 28,
+      ddp: 12,
+      preco: 650.75
+    }
+    var NiCd = {
+      nome : "Niquel Cadmio 7.2V 0.6A",
+      capacidade: 0.6,
+      ddp: 7.2,
+      preco: 65
+    }
+   var lipo = {
+      nome : "Bateria Polimero de Litio 3.7V 1.8A",
+      capacidade: 1.8,
+      ddp: 3.7,
+      preco: 69
+    }
+    var NiMh = {
+      nome : "Bateria Hidreto Metalico de Niquel 1.2V 2A",
+      capacidade: 2,
+      ddp: 1.2,
+      preco: 8.43
+    }
+    var Liion = {
+      nome : "Litio Ion 3.7V 1.4A",
+      capacidade: 1.4,
+      ddp: 3.7,
+      preco: 45
+    }
+    var chumbo_acida1 = {
+      nome : "Chumbo Acida 6V 1,3A",
+      capacidade: 1.3,
+      ddp: 6,
+      preco: 38.30
+    }
+    var Liion1 = {
+      nome : "Litio Ion 3,6V 2,5A",
+      capacidade: 2.5,
+      ddp: 3.6,
+      preco: 19.38
+    }
+    var sc = {
+      nome : "Bateria Recarregável de Níquel Metal Hidreto 3,6V 2,5A",
+      capacidade: 3,
+      ddp: 1.2,
+      preco: 29
+    }
+    var duracel = {
+      nome : "Pilha Duracell Alcalina AA 1,5v 2,1A",
+      capacidade: 2.1,
+      ddp: 1.5,
+      preco: 3.2
+    }
+    var ZiCo = {
+      nome : "Pilha Zinco Carbono 1,5V 13A",
+      capacidade: 13,
+      ddp: 1.5,
+      preco: 3.5
+    }
+
+
+
+
+
+
+    pilhas.push(chumbo_acida);
+    pilhas.push(NiCd);
+    pilhas.push(lipo);
+    pilhas.push(NiMh);
+    pilhas.push(Liion);
+    pilhas.push(chumbo_acida1);
+    pilhas.push(Liion1);
+    pilhas.push(sc);
+    pilhas.push(duracel);
+    pilhas.push(ZiCo);
+
+
+    function Montar() {
+
+      //eletricos
+
+      var ddp_teorica = 0;
+      var ddp_real;
+      var temp;
+      var conc_anodo;
+      var anodo;
+      var nome_anodo;
+      var conc_catodo;
+      var nome_catodo;
+      var n_eletrons;
+      var Kgases =   .0530;
+      var Kfaraday = 96485.332;
+
+      nome_catodo = document.getElementById("slct1").value;
+      nome_anodo = document.getElementById("slct3").value;
+
+      for(var i = 0; i < 13; i++){
+          if(materiais[i].abreviatura == nome_catodo){
+            // alert(materiais[i].potencial_reducao);
+            ddp_teorica -= materiais[i].potencial_reducao;
+              catodo = materiais[i];
+          }
+
+          if(materiais[i].abreviatura == nome_anodo){
+            // alert(materiais[i].potencial_reducao);
+              ddp_teorica += materiais[i].potencial_reducao;
+              anodo = materiais[i];
+          }
+      }
+
+      // alert("Ddp teórica ->"+nome_catodo + " com "+ nome_anodo+" = "+parseFloat(ddp_teorica));
+
+      if(anodo.n_eletrons > catodo.n_eletrons){
+        n_eletrons = anodo.n_eletrons;
+      }else{
+        n_eletrons = catodo.n_eletrons;
+      }
+
+
+
+
+      conc_catodo = document.getElementById("pergunta_3").value;
+      conc_anodo = document.getElementById("pergunta_8").value;
+
+      temp= document.getElementById("pergunta_5").value;
+      temp = temp + 273;
+
+
+      // alert(temp);
+      // alert(conc_anodo);
+      // alert(conc_catodo);
+
+
+      //equação de nernst
+      ddp_real = ddp_teorica - (Kgases*temp/(n_eletrons*Kfaraday))*Math.log(conc_anodo/conc_catodo);
+
+      // alert("Ddp real ->"+parseFloat(ddp_real));
+
+
+      var mols_anodo;
+      var mols_catodo;
+      var proporcao;
+      //calculo da quantidade molar
+      massa_catodo_input =  document.getElementById("pergunta_4").value;
+      massa_anodo_input =  document.getElementById("pergunta_9").value;
+
+      mols_anodo = (massa_anodo_input ) / anodo.massa_molar;
+      mols_catodo = (massa_catodo_input ) / catodo.massa_molar;
+
+
+      //
+      if(anodo.n_eletrons>=catodo.n_eletrons){
+        proporcao = anodo.n_eletrons / catodo.n_eletrons;
+      }else{
+        proporcao = catodo.n_eletrons / anodo.n_eletrons ;
+      }
+
+      //calculo de quantidade de mols que foram reagidos
+      var mols_eletron_reagidos;
+
+      var aux_cat;
+      var aux_ano;
+
+      //definir substancia limitante
+      if(anodo.n_eletrons>=catodo.n_eletrons){
+        aux_ano = mols_anodo;
+        aux_cat = mols_catodo / proporcao;
+      }else{
+        aux_ano = mols_anodo / proporcao;
+        aux_cat = mols_catodo;
+      }
+
+
+
+      //quantidade de mols reagidos
+      if(aux_ano > aux_cat){
+        mols_eletron_reagidos = aux_cat * catodo.n_eletrons;
+      }else{
+        mols_eletron_reagidos = aux_ano * anodo.n_eletrons;
+      }
+
+      // alert(proporcao);
+
+      var carga = mols_eletron_reagidos * Kfaraday;
+
+      ampere_hora = carga/3600;
+
+      var massa_total =  parseFloat(massa_anodo_input)+parseFloat(massa_catodo_input)+0.200;
+      var densidade_carga= carga/massa_total;
+      var densidade_energia = densidade_carga * ddp_real;
+      var preco_total = (massa_anodo_input * anodo.preco) + (massa_catodo_input * catodo.preco);
+
+      alert("Tensão ->"+parseFloat(ddp_real)+"\n"+
+      "Capacidade :" + parseFloat(ampere_hora) +"Ah \n" +
+      "Massa total: "+ massa_total + "Kg \n" +
+      "Densidade de carga: "+ densidade_carga  + "\n" +
+      "Densidade de energia: "+ densidade_energia  + "\n" +
+      "Preço total: R$"+ preco_total)
+    }
+
+    function Sugerindo(){
+
+      var corrente, carga, massa_total, preco_total,total_celulas;
+
+      var ddp_esperada = document.getElementById("pergunta_10").value;
+      var potencia_esperada = document.getElementById("pergunta_11").value;
+      var tempo_ligada_desejado = document.getElementById("pergunta_12").value;
+
+      corrente = potencia_esperada/ddp_esperada;
+      carga = corrente*tempo_ligada_desejado*3600;
+
+
+      var lista_todos = [];
+      var lista_precos = [];
+      var lista_todos_ordenada = [];
+
+      for (var i = 0; i < 10; i++){
+        var lista_itens = []; //[ nome , numero_serie , numero paralelo, total de celulas , preco total]
+
+        nome_pilha = pilhas[i].nome;
+        lista_itens.push(nome_pilha);
+
+        numero_em_serie = ddp_esperada/pilhas[i].ddp;
+        numero_em_serie = Math.ceil(numero_em_serie);
+        lista_itens.push(numero_em_serie);
+
+        numero_em_paralelo = carga/(pilhas[i].capacidade*3600)
+        numero_em_paralelo = Math.ceil(numero_em_paralelo);
+        lista_itens.push(numero_em_paralelo);
+
+        total_celulas = numero_em_paralelo*numero_em_serie
+        lista_itens.push(total_celulas);
+
+        preco_total = total_celulas*pilhas[i].preco;
+        lista_itens.push(preco_total);
+
+        lista_precos.push(preco_total);
+
+        lista_todos.push(lista_itens);
+
+      }
+      lista_precos.sort(function(a, b){return a - b});
+
+      for (var i = 0; i < 10; i++){
+        for (var j = 0; j < 10; j++){
+          if (lista_precos[i] == lista_todos[j][4]){
+            lista_todos_ordenada.push(lista_todos[j]);
+
+          }
+        }
+      }
+
+      for (var i = 0; i < 3; i++){
+        alert(
+        i+1 + "º bateria mais recomendada" + "\n" +
+        "A pilha é: " + lista_todos_ordenada[i][0] +"\n" +
+        "Celulas em Serie: " + lista_todos_ordenada[i][1] + "\n" +
+        "Celulas em Paralelo: " + lista_todos_ordenada[i][2] + "\n" +
+        "Total de Celulas: " + lista_todos_ordenada[i][3] + "\n" +
+        "Preco Total da Pilha: " + lista_todos_ordenada[i][4] + "\n"
+        )
+      }
+    }
+
+
+  </script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
